@@ -1,7 +1,42 @@
-<h1>Eventos do Components</h1>
+<h2>Eventos</h2>
 
-<div *ngFor="let evento of Eventos">
-  <p><b>Tema:</b>{{evento.tema}}</p>
-  <p><b>Local:</b>{{evento.local}}</p>
-  <hr>
-</div>
+<hr>
+
+<form class="row row-cols-lg-auto g-3 align-items-center" action="">
+  <div>
+    <label class="visually-hidden" for="inlineFormInputGroupUsername"></label>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="buscar" />
+    </div>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-outline-success">Buscar</button>
+  </div>
+</form>
+
+<hr>
+
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th class="text-center" scope="col">#</th>
+      <th class="text-center" scope="col">Imagem</th>
+      <th class="text-center" scope="col">Tema</th>
+      <th class="text-center" scope="col">Data</th>
+      <th class="text-center" scope="col">Qtd Pessoas</th>
+      <th class="text-center" scope="col">Lote</th>
+      <th class="text-center" scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let evento of Eventos">
+      <th class="text-center" scope="row">{{evento.eventoId}}</th>
+      <td class="text-center">{{evento.iagemURL}}</td>
+      <td class="text-center">{{evento.tema}}</td>
+      <td class="text-center">{{evento.dataEvento}}</td>
+      <td class="text-center">{{evento.qtdPessoas}}</td>
+      <td class="text-center">{{evento.lote}}</td>
+      <td class="text-center"></td>
+    </tr>
+  </tbody>
+</table>
