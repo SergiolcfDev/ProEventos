@@ -2,18 +2,23 @@
 
 <hr>
 
-<form class="row row-cols-lg-auto g-3 align-items-center" action="">
+<div class="row row-cols-lg-auto g-3 align-items-center" action="">
   <div>
     <label class="visually-hidden" for="inlineFormInputGroupUsername"></label>
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="buscar" />
+      <label class="mr-2">Filtro</label>
+      <input
+      type="text"
+       class="form-control"
+        placeholder="buscar"
+        [(ngModel)]="filtroLista"/>
     </div>
   </div>
-  <div>
+  <!-- <div>
     <button type="submit" class="btn btn-outline-success">Buscar</button>
-  </div>
-</form>
-
+  </div> -->
+</div>
+<!-- <h3>Filter: {{filtroLista}}</h3> -->
 <hr>
 
 <table class="table">
@@ -25,6 +30,7 @@
       </th>
       <th class="text-center" scope="col">#</th>
       <th class="text-center" scope="col">Tema</th>
+      <th class="text-center" scope="col">Local</th>
       <th class="text-center" scope="col">Data</th>
       <th class="text-center" scope="col">Qtd Pessoas</th>
       <th class="text-center" scope="col">Lote</th>
@@ -32,7 +38,7 @@
     </tr>
   </thead>
   <tbody *ngIf="Eventos && Eventos.length">
-    <tr *ngFor="let evento of Eventos">
+    <tr *ngFor="let evento of EventosFiltrados">
       <td>
         <img [collapse]="!showImg"
         [isAnimated]="true"
@@ -43,9 +49,14 @@
       </td>
       <th class="text-center" scope="row">{{evento.eventoId}}</th>
       <td class="text-center">{{evento.tema}}</td>
+      <td class="text-center">{{evento.local}}</td>
       <td class="text-center">{{evento.dataEvento}}</td>
       <td class="text-center">{{evento.qtdPessoas}}</td>
       <td class="text-center">{{evento.lote}}</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm me-2">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+      </td>
       <td class="text-center"></td>
     </tr>
   </tbody>
